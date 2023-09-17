@@ -1,0 +1,38 @@
+
+<div class="form" [formGroup]="signUpForm">
+	<div class="title"><h1>Sign Up</h1></div>
+  <input
+    type="email"
+    formControlName="email"
+    placeholder="Email"
+    class="email"
+  />
+  <input
+    type="password"
+    formControlName="password"
+    placeholder="Password"
+    class="password"
+  />
+  <input
+    type="password"
+    formControlName="re-password"
+    placeholder="Re-password"
+    class="password"
+  />
+  <input
+    type="text"
+    formControlName="firstName"
+    placeholder="First Name"
+    class="firstName"
+  />
+  <input
+    type="text"
+    formControlName="lastName"
+    placeholder="Last Name"
+    class="lastName"
+  />
+
+  <div>
+    <button type="submit"  class="btn">Sign Up</button>
+  </div>
+</div>
