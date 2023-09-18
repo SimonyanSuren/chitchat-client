@@ -7,17 +7,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private baseUrl = 'http://api.example.com/v1'; // Replace with your API base URL
+  private baseUrl = 'http://localhost:9090/api/v1'; 
 
   constructor(private http: HttpClient) {}
 
-  // Define headers with authentication token (if needed)
   private headers = new HttpHeaders({
     'Content-Type': 'application/json',
-    Authorization: 'Bearer ' + localStorage.getItem('accessToken'), // You may use a different method to store tokens
+    Authorization: 'Bearer ' + localStorage.getItem('accessToken'), 
   });
 
-  // Auth Endpoints
   signUp(user: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/auth/sign-up`, user);
   }
@@ -34,12 +32,10 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/auth/refresh`, {}, { headers: this.headers });
   }
 
-  // User Endpoints
   getCurrentUserData(): Observable<any> {
     return this.http.get(`${this.baseUrl}/user`, { headers: this.headers });
   }
 
-  // Channel Endpoints
   createChannel(channelData: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/channel`, channelData, { headers: this.headers });
   }
@@ -54,7 +50,6 @@ export class ApiService {
     });
   }
 
-  // Message Endpoints
   createMessage(channelId: number, messageData: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/channel/${channelId}/message`, messageData, {
       headers: this.headers,
